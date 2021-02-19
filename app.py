@@ -1,5 +1,5 @@
 # coding: utf-8
-from flask import Flask, render_template, request, jsonify, redirect, url_for, g, session
+from flask import Flask, render_template, request
 from flask_socketio import SocketIO, send, emit
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'some key for session'
@@ -14,19 +14,23 @@ def index():
     userszamlalo = len(currentusers["name"])
     return render_template('index.html', userszamlalo=userszamlalo)
 
+
 @app.route('/game')
 def game():
     return render_template('jsgame.html')
-    
+
+
 @app.route('/choosecharacter/<character>')
 def choosecharacter(character):
     character = character
     return render_template('jsgame.html', chooseduser=character)
 
+
 @socketio.on('message')
 def receivemessage(message):
     send('ez egy valasz')
-    
+
+
 @socketio.on('connection')
 def connectionevent(event):
     event = event.split(":")
@@ -39,11 +43,14 @@ def connectionevent(event):
     socketio.emit('getuserid', str(jelenlegi))
     event = currentusers
     socketio.emit('currentusers', currentusers)
+    print("ccommittest")
+
 
 @socketio.on('usermove')
 def usermove(positions):
     positions = positions.split(":")
     socketio.emit('useraction', positions)
+
 
 @socketio.on('disconnect')
 def disconnect():
@@ -54,7 +61,6 @@ def disconnect():
     currentusers["name"].remove(currentusers["name"][exitsid])
     currentusers["hos"].remove(currentusers["hos"][exitsid])
     socketio.emit('divdelete', exituser)
-    
 
 
 if __name__ == '__main__':
