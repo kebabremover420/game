@@ -1,0 +1,59 @@
+body {
+	background-color: #B4B7BA;
+}
+
+.gamearea {
+	top: 100px;
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+	width: 1200px;
+	height: 800px;
+	background-color: #123456;
+	display: inline-block;
+	vertical-align: top;
+}
+.user {
+	width: 50px;
+	height: 50px;
+}
+.hanggroup {
+	position: relative;
+}
+.actiondiv {
+	top: 100px;
+	position: relative;
+	width: 200px;
+	height: 800px;
+	display: inline-block;
+	background-color: #333333;
+}
+.tarrtalomcontainer {
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+.fohos {
+	margin-top: 20px;
+	font-size: 23px;
+	color: white;
+	font-family: 'Anton', serif;
+}
+.kepessegek {
+	font-size: 23px;
+	color: white;
+	font-family: 'Anton', serif;
+}
+.cim {
+	font-size: 50px;
+	margin-bottom: 0px;
+	bottom: -50px;
+	line-height: 0px;
+	position: relative;
+	color: #006E6D;
+	text-align: center;
+	font-family: 'Pacifico', serif;
+}
+.btn-secondary {
+	background-color: #005960;
+}
