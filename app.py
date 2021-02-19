@@ -43,7 +43,7 @@ def connectionevent(event):
     socketio.emit('getuserid', str(jelenlegi))
     event = currentusers
     socketio.emit('currentusers', currentusers)
-    print("ccommittest")
+    print("ccommittestasd")
 
 
 @socketio.on('usermove')
@@ -61,6 +61,7 @@ def disconnect():
     currentusers["name"].remove(currentusers["name"][exitsid])
     currentusers["hos"].remove(currentusers["hos"][exitsid])
     socketio.emit('divdelete', exituser)
+    print("ccommittestasd")
 
 
 if __name__ == '__main__':
