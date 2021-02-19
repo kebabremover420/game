@@ -5,7 +5,7 @@ var posx = 1;
 var posy = 1;
 var alreadyid = false;
 var chooseduser = document.getElementById("chooseduser").innerHTML;
-console.log("test")
+
 const kisegito = new Audio('kisegito.mp3');
 const buli = new Audio('buli.mp3');
 
