@@ -63,4 +63,4 @@ def disconnect():
 
 
 if __name__ == '__main__':
-    socketio.run(app, host="192.168.0.41")
+    socketio.run(app)
