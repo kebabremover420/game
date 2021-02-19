@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>game</title>
+	<div id="chooseduser" style="display:none;">{{ chooseduser }}</div>
+	<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">-->
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/game.css') }}">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Anton">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Pacifico">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+</head>
+<body style="background-color:#B4B7BA;">
+<h1 class="cim">KikiIO</h1>
+<div class="tarrtalomcontainer">
+	<div class="border border-info actiondiv rounded">
+		<p class="fohos">Aktuális főhős:</p>
+		<p class="fohos" id="fohos" style="color:#ff7f50;">Kiki</p>
+		<p class="kepessegek">Képességek:</p>
+		<div class="hanggroup btn-group-vertical">
+			<button type="button" class="btn btn-secondary" id="buli">Buli</button>
+			<button type="button" class="btn btn-secondary" id="kisegito">Kisegitő</button>
+			<button type="button" class="btn btn-secondary">Iligy</button>
+			<button type="button" class="btn btn-secondary">Szevasztok</button>
+		</div>
+	</div>
+
+	<div class="gamearea rounded" id="gamearea">
+		
+	</div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.1.1/socket.io.js" integrity="sha512-oFOCo2/3DtjrJG4N27BjSLQWoiBv171sK6a+JiWjp/7agxC2nCUP358AqzxkBUb5jX8g6CYLPdSKQTbC0weCwA==" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="{{ url_for('static', filename='js/game.js') }}"></script>
+</body>
+</html>

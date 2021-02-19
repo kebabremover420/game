@@ -1,0 +1,24 @@
+body {
+  background-color: #363945;
+}
+.fbox3 > div[class*=col] {
+    padding-top: 5px;
+    padding-bottom: 5px
+}
+.container {
+    margin-top: 50px;
+    justify-content: center;
+    display: flex;
+}
+.cim{
+    text-align: center;
+    color: #00A170;
+    margin-top: 30px;
+}
+.galeriapng2 {
+    display: block;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90px;
+}

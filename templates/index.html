@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>game</title>
+	<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">-->
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/index.css') }}">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Anton">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Pacifico">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+</head>
+<body style="background-color:#B4B7BA;">
+<h1 class="cim">KikiIO</h1>
+
+<div class="szobak card">
+  <div class="card-header">
+    Szobák
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Kiki game</h5>
+    <p class="card-text">{{ userszamlalo }}/5</p>
+	<div class="karakterimg"><img src="/static/images/kikismall.png" style="width:40px;"></div>
+	<a href="#" class="btn btn-primary">Csatlakozás kikiként</a>
+	<div class="karakterimg"><img src="/static/images/bartosbig.png" style="width:40px;"></div>
+    <a href="#" class="btn btn-primary">Csatlakozás bartosként</a>
+  </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.1.1/socket.io.js" integrity="sha512-oFOCo2/3DtjrJG4N27BjSLQWoiBv171sK6a+JiWjp/7agxC2nCUP358AqzxkBUb5jX8g6CYLPdSKQTbC0weCwA==" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="{{ url_for('static', filename='js/index.js') }}"></script>
+</body>
+</html>
