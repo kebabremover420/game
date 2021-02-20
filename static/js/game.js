@@ -63,6 +63,7 @@ socket.on('connect', function() {
 	})
 });
 socket.on('currentusers', function(currentusers) {
+	let newdiv;
 	console.log(currentusers)
 	console.log(currentusers["name"])
 	for(let i = 0; i<currentusers["name"].length; i++){
@@ -70,16 +71,16 @@ socket.on('currentusers', function(currentusers) {
 			console.log(localusers)
 		} else{
 			if(currentusers["hos"][i] === "kiki"){
-				var newdiv = `<div class="user" id="${currentusers["name"][i]}"><img class="user" src="/static/images/kikismall.png"></div>`
+				newdiv = `<div class="user" id="${currentusers["name"][i]}"><img class="user" src="/static/images/kikismall.png"></div>`;
 				const gombok = document.getElementsByClassName("kiki");
-				for (var i = 0; i < gombok.length; i++) {
-					gombok[i].style.display = "inline-block"
+				for (var a = 0; i < gombok.length; i++) {
+					gombok[a].style.display = "inline-block"
 				}
 			}else{
-				var newdiv = `<div class="user" id="${currentusers["name"][i]}"><img class="user" src="/static/images/bartosbig.png"></div>`
+				newdiv = `<div class="user" id="${currentusers["name"][i]}"><img class="user" src="/static/images/bartosbig.png"></div>`;
 				const gombok = document.getElementsByClassName("bartos");
-				for (var i = 0; i < gombok.length; i++) {
-					gombok[i].style.display = "inline-block"
+				for (var a = 0; i < gombok.length; i++) {
+					gombok[a].style.display = "inline-block"
 				}
 			}
 			document.getElementById("gamearea").innerHTML += newdiv
