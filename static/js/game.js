@@ -29,6 +29,9 @@ document.getElementById("szaguldas").addEventListener('click', function () {
 document.getElementById("talalkozas").addEventListener('click', function () {
 	playsound("talalkozas")
 });
+document.getElementById("mozgekonyak").addEventListener('click', function () {
+	playsound("mozgekonyak")
+});
 
 
 
@@ -45,6 +48,7 @@ socket.on('playsoundonclient', function(soundtypeclient) {
 	if (soundtypeclient==="kisegito") {audiofile = document.getElementById("kisegitosound");}
 	if (soundtypeclient==="szaguldas") {audiofile = document.getElementById("szaguldassound");}
 	if (soundtypeclient==="talalkozas") {audiofile = document.getElementById("talalkozassound");}
+	if (soundtypeclient==="mozgekonyak") {audiofile = document.getElementById("mozgekonyaksound");}
 	audiofile.play();
 	console.log("start");
 	const gombok = document.getElementsByClassName("btn-secondary");
