@@ -6,22 +6,25 @@ var posy = 1;
 var alreadyid = false;
 var chooseduser = document.getElementById("chooseduser").innerHTML;
 
-const kisegito = new Audio('kisegito.mp3');
-const buli = new Audio('buli.mp3');
+//const kisegito = new Audio('kisegito.mp3');
+//const buli = new Audio('buli.mp3');
 
-document.getElementById("buli").addEventListener('click', playsound("kisegito"));
+document.getElementById("buli").addEventListener('click', playsound("buli"));
 
 function playsound(soundtype) {
 	console.log("klikk: " + soundtype)
-	if(soundtype == "kisegito") {
+	if(soundtype === "kisegito") {
 		new Audio('kisegito.mp3').play();
+	}
+	if(soundtype === "buli") {
+		document.getElementById("bulisound").play();
 	}
 }
 
 socket.on('connect', function() {
 	socket.emit('connection', `user_connected:${chooseduser}`);
 	socket.on('getuserid', function(id) {
-		if (alreadyid == false){
+		if (alreadyid === false){
 			userid = id;
 			alreadyid = true;
 		}
@@ -34,7 +37,7 @@ socket.on('currentusers', function(currentusers) {
 		if (localusers.includes(currentusers["name"][i])){
 			console.log(localusers)
 		} else{
-			if(currentusers["hos"][i] == "kiki"){
+			if(currentusers["hos"][i] === "kiki"){
 				var newdiv = `<div class="user" id="${currentusers["name"][i]}"><img class="user" src="/static/images/kikismall.png"></div>`
 			}else{
 				var newdiv = `<div class="user" id="${currentusers["name"][i]}"><img class="user" src="/static/images/bartosbig.png"></div>`
@@ -54,7 +57,7 @@ function placeDiv(elem, x_pos, y_pos) {
 }
 function mozgas(event){
 	pressed = event.key;
-	if (pressed=="w"){
+	if (pressed==="w"){
 		posy = posy - 5;
 		if (posy < 0) {
 			posy = 0
@@ -64,7 +67,7 @@ function mozgas(event){
 		posyfunc = posy;
 		socket.emit('usermove', `${userid}:${posx}:${posy}`);
 	}
-	if (pressed=="s"){
+	if (pressed==="s"){
 		posy = posy + 5;
 		if (posy > 730) {
 			posy = 730
@@ -74,7 +77,7 @@ function mozgas(event){
 		posyfunc = posy;
 		socket.emit('usermove', `${userid}:${posx}:${posy}`);
 	}
-	if (pressed=="a"){
+	if (pressed==="a"){
 		posx = posx - 5;
 		if (posx < 0) {
 			posx = 0;
@@ -84,7 +87,7 @@ function mozgas(event){
 		posyfunc = posy;
 		socket.emit('usermove', `${userid}:${posx}:${posy}`);
 	}
-	if (pressed=="d"){
+	if (pressed==="d"){
 		posx = posx + 5;
 		if (posx > 1150) {
 			posx = 1150;
@@ -97,7 +100,7 @@ function mozgas(event){
 }
 
 socket.on('useraction', function(usermovefromflask) {
-	if(usermovefromflask[0] == userid ){
+	if(usermovefromflask[0] === userid ){
 		
 	} else {
 		placeDiv(document.getElementById(usermovefromflask[0]), usermovefromflask[1], usermovefromflask[2]);
