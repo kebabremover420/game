@@ -10,10 +10,12 @@ var audiofile;
 //const kisegito = new Audio('kisegito.mp3');
 //const buli = new Audio('buli.mp3');
 
-
+/*
 document.getElementById("buli").addEventListener('click', function () {
 	playsound("buli")
 });
+
+ */
 document.getElementById("kisegito").addEventListener('click', function () {
 	playsound("kisegito")
 });
@@ -37,6 +39,13 @@ document.getElementById("szarhazi").addEventListener('click', function () {
 });
 
 
+function addsound(gombid) {
+	document.getElementById(gombid).addEventListener('click', function () {
+		playsound(gombid + "sound")
+	});
+}
+
+addsound("buli");
 
 function playsound(soundtype) {
 	console.log("klikk: " + soundtype);
@@ -45,7 +54,8 @@ function playsound(soundtype) {
 }
 
 socket.on('playsoundonclient', function(soundtypeclient) {
-	if (soundtypeclient==="buli") {audiofile = document.getElementById("bulisound");}
+	audiofile = document.getElementById(soundtypeclient)
+	//if (soundtypeclient==="buli") {audiofile = document.getElementById("bulisound");}
 	if (soundtypeclient==="kicsi") {audiofile = document.getElementById("kicsisound");}
 	if (soundtypeclient==="fantacska") {audiofile = document.getElementById("fantacskasound");}
 	if (soundtypeclient==="kisegito") {audiofile = document.getElementById("kisegitosound");}
