@@ -32,6 +32,9 @@ document.getElementById("talalkozas").addEventListener('click', function () {
 document.getElementById("mozgekonyak").addEventListener('click', function () {
 	playsound("mozgekonyak")
 });
+document.getElementById("szarhazi").addEventListener('click', function () {
+	playsound("szarhazi")
+});
 
 
 
@@ -49,6 +52,7 @@ socket.on('playsoundonclient', function(soundtypeclient) {
 	if (soundtypeclient==="szaguldas") {audiofile = document.getElementById("szaguldassound");}
 	if (soundtypeclient==="talalkozas") {audiofile = document.getElementById("talalkozassound");}
 	if (soundtypeclient==="mozgekonyak") {audiofile = document.getElementById("mozgekonyaksound");}
+	if (soundtypeclient==="szarhazi") {audiofile = document.getElementById("szarhazisound");}
 	audiofile.play();
 	console.log("start");
 	const gombok = document.getElementsByClassName("btn-secondary");
