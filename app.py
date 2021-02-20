@@ -63,4 +63,4 @@ def disconnect():
 
 
 if __name__ == '__main__':
-    socketio.run(app, host="3.21.169.88")  # rpi: 192.168.0.41 ec2: 3.21.169.88
+    socketio.run(app, host="ec2-3-21-169-88.us-east-2.compute.amazonaws.com")  # rpi: 192.168.0.41 ec2: 3.21.169.88
