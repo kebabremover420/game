@@ -19,22 +19,18 @@ document.getElementById("kisegito").addEventListener('click', function () {
 
 function playsound(soundtype) {
 	console.log("klikk: " + soundtype);
-	if (soundtype==="buli") {
+	socket.emit('playsound', soundtype);
+	return
+}
+
+socket.on('playsoundonclient', function(soundtypeclient) {
+	if (soundtypeclient==="buli") {
 		document.getElementById("bulisound").play();
 	}
-	if (soundtype==="kisegito") {
+	if (soundtypeclient==="kisegito") {
 		document.getElementById("kisegitosound").play();
 	}
-	return
-	/*
-	if(soundtype === "kisegito") {
-		new Audio('kisegito.mp3').play();
-	}
-	if(soundtype === "buli") {
-		document.getElementById("bulisound").play();
-	}
-	 */
-}
+});
 
 socket.on('connect', function() {
 	socket.emit('connection', `user_connected:${chooseduser}`);
