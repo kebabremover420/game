@@ -8,40 +8,6 @@ var chooseduser = document.getElementById("chooseduser").innerHTML;
 var audiofile;
 const audiofiles = ["buli", "kisegito", "fantacska", "kicsi", "szaguldas", "talalkozas", "mozgekonyak", "szarhazi"];
 
-//const kisegito = new Audio('kisegito.mp3');
-//const buli = new Audio('buli.mp3');
-
-/*
-document.getElementById("buli").addEventListener('click', function () {
-	playsound("buli")
-});
-
- */
-/*
-document.getElementById("kisegito").addEventListener('click', function () {
-	playsound("kisegito")
-});
-document.getElementById("fantacska").addEventListener('click', function () {
-	playsound("fantacska")
-});
-document.getElementById("kicsi").addEventListener('click', function () {
-	playsound("kicsi")
-});
-document.getElementById("szaguldas").addEventListener('click', function () {
-	playsound("szaguldas")
-});
-document.getElementById("talalkozas").addEventListener('click', function () {
-	playsound("talalkozas")
-});
-document.getElementById("mozgekonyak").addEventListener('click', function () {
-	playsound("mozgekonyak")
-});
-document.getElementById("szarhazi").addEventListener('click', function () {
-	playsound("szarhazi")
-});
-
- */
-
 for (var i = 0; i < audiofiles.length; i++) {
 	addsound(audiofiles[i])
 }
@@ -55,26 +21,13 @@ function addsound(gombid) {
 addsound("buli");
 
 function playsound(soundtype) {
-	console.log("klikk: " + soundtype);
 	socket.emit('playsound', soundtype);
 	return
 }
 
 socket.on('playsoundonclient', function(soundtypeclient) {
 	audiofile = document.getElementById(soundtypeclient)
-	/*
-	//if (soundtypeclient==="buli") {audiofile = document.getElementById("bulisound");}
-	if (soundtypeclient==="kicsi") {audiofile = document.getElementById("kicsisound");}
-	if (soundtypeclient==="fantacska") {audiofile = document.getElementById("fantacskasound");}
-	if (soundtypeclient==="kisegito") {audiofile = document.getElementById("kisegitosound");}
-	if (soundtypeclient==="szaguldas") {audiofile = document.getElementById("szaguldassound");}
-	if (soundtypeclient==="talalkozas") {audiofile = document.getElementById("talalkozassound");}
-	if (soundtypeclient==="mozgekonyak") {audiofile = document.getElementById("mozgekonyaksound");}
-	if (soundtypeclient==="szarhazi") {audiofile = document.getElementById("szarhazisound");}
-
-	 */
 	audiofile.play();
-	console.log("start");
 	const gombok = document.getElementsByClassName("btn-secondary");
 	for (var i = 0; i < gombok.length; i++) {
 		gombok[i].style.backgroundColor="#333333";
@@ -86,7 +39,6 @@ socket.on('playsoundonclient', function(soundtypeclient) {
 			gombok[i].style.backgroundColor="#6c757d";
 			gombok[i].disabled = false;
 		}
-		console.log('vege');
 	}, audiofile.duration*1000);
 });
 
@@ -102,11 +54,9 @@ socket.on('connect', function() {
 socket.on('currentusers', function(currentusers) {
 	let a;
 	let newdiv;
-	console.log(currentusers)
-	console.log(currentusers["name"])
 	for(let i = 0; i<currentusers["name"].length; i++){
 		if (localusers.includes(currentusers["name"][i])){
-			console.log(localusers)
+			console.log("")
 		} else{
 			if(currentusers["hos"][i] === "kiki"){
 				newdiv = `<div class="user" id="${currentusers["name"][i]}"><img class="user" src="/static/images/kikismall.png"></div>`;
@@ -191,9 +141,7 @@ socket.on('useraction', function(usermovefromflask) {
 })
 
 socket.on('divdelete', function(leftuser) {
-	var torlendouser = leftuser;
-	//var userindex = localusers.findIndex(torlendouser)
-	//console.log("userindex: " + userindex)
+	const torlendouser = leftuser;
 	localusers.splice(localusers.indexOf(torlendouser),localusers.indexOf(torlendouser));
 	document.getElementById(leftuser).remove();
 })
