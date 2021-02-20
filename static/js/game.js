@@ -90,7 +90,7 @@ socket.on('currentusers', function(currentusers) {
 		} else{
 			if(currentusers["hos"][i] === "kiki"){
 				newdiv = `<div class="user" id="${currentusers["name"][i]}"><img class="user" src="/static/images/kikismall.png"></div>`;
-			}else{
+			}else if (currentusers["hos"][i] === "bartos"){
 				newdiv = `<div class="user" id="${currentusers["name"][i]}"><img class="user" src="/static/images/bartosbig.png"></div>`;
 			}
 			document.getElementById("gamearea").innerHTML += newdiv
@@ -102,7 +102,7 @@ socket.on('currentusers', function(currentusers) {
 				for (a = 0; a < gombok.length; a++) {
 					gombok[a].style.display = "inline-block";
 				}
-			}else{
+			}else if (currentusers["hos"][i] === "bartos"){
 				const gombok = document.getElementsByClassName("bartos");
 				for (a = 0; a < gombok.length; a++) {
 					gombok[a].style.display = "inline-block";
