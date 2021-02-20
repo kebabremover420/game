@@ -1,4 +1,4 @@
-const socket = io.connect('http://0.0.0.0:8080');
+const socket = io.connect('http://3.21.169.88:8080/');
 var userid;
 var localusers = []
 var posx = 1;
