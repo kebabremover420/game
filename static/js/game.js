@@ -13,14 +13,12 @@ document.getElementById("buli").addEventListener('click', playsound("buli"));
 
 function playsound(soundtype) {
 	console.log("klikk: " + soundtype)
-	/*
 	if(soundtype === "kisegito") {
 		new Audio('kisegito.mp3').play();
 	}
 	if(soundtype === "buli") {
 		document.getElementById("bulisound").play();
 	}
-	 */
 }
 
 socket.on('connect', function() {
