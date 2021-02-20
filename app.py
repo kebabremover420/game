@@ -64,3 +64,4 @@ def disconnect():
 
 if __name__ == '__main__':
     socketio.run(app, host="0.0.0.0", port="8080")  # rpi: 192.168.0.41 ec2: 3.21.169.88
+#access: http://3.21.169.88:8080/
