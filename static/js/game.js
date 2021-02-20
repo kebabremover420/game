@@ -30,7 +30,7 @@ socket.on('playsoundonclient', function(soundtypeclient) {
 		audiofile.play();
 		setTimeout(function(){
 			console.log('vege');
-		}, audiofile.duration);
+		}, audiofile.duration*1000);
 		console.log("duration: " + audiofile.duration)
 
 	}
