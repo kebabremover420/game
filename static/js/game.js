@@ -32,7 +32,7 @@ function drawfeed(x, y) {
 	feed.style.position = "absolute";
 	feed.style.left = x + 'px';
 	feed.style.top = y + 'px';
-	feed.style.backgroundColor = "rgb(Math.floor(Math.random() * 256), Math.floor(Math.random() * 256), Math.floor(Math.random() * 256))";
+	feed.style.backgroundColor = `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)})`;
 	document.getElementById("gamearea").appendChild(feed)
 }
 
