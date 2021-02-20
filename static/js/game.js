@@ -63,6 +63,7 @@ socket.on('connect', function() {
 	})
 });
 socket.on('currentusers', function(currentusers) {
+	let a;
 	let newdiv;
 	console.log(currentusers)
 	console.log(currentusers["name"])
@@ -73,14 +74,14 @@ socket.on('currentusers', function(currentusers) {
 			if(currentusers["hos"][i] === "kiki"){
 				newdiv = `<div class="user" id="${currentusers["name"][i]}"><img class="user" src="/static/images/kikismall.png"></div>`;
 				const gombok = document.getElementsByClassName("kiki");
-				for (var a = 0; i < gombok.length; i++) {
-					gombok[a].style.display = "inline-block"
+				for (a = 0; a < gombok.length; a++) {
+					gombok[a].style.display = "inline-block";
 				}
 			}else{
 				newdiv = `<div class="user" id="${currentusers["name"][i]}"><img class="user" src="/static/images/bartosbig.png"></div>`;
 				const gombok = document.getElementsByClassName("bartos");
-				for (var a = 0; i < gombok.length; i++) {
-					gombok[a].style.display = "inline-block"
+				for (a = 0; a < gombok.length; a++) {
+					gombok[a].style.display = "inline-block";
 				}
 			}
 			document.getElementById("gamearea").innerHTML += newdiv
