@@ -28,8 +28,18 @@ socket.on('playsoundonclient', function(soundtypeclient) {
 	if (soundtypeclient==="buli") {audiofile = document.getElementById("bulisound");}
 	if (soundtypeclient==="kisegito") {audiofile = document.getElementById("kisegitosound");}
 	audiofile.play();
-	console.log("start")
+	console.log("start");
+	const gombok = document.getElementsByClassName("btn-secondary");
+	for (var i = 0; i < gombok.length; i++) {
+		gombok[i].style.backgroundColor="#333333";
+		gombok[i].disabled = true;
+	}
 	setTimeout(function(){
+		const gombok = document.getElementsByClassName("btn-secondary");
+		for (var i = 0; i < gombok.length; i++) {
+			gombok[i].style.backgroundColor="#6c757d";
+			gombok[i].disabled = false;
+		}
 		console.log('vege');
 	}, audiofile.duration*1000);
 });

@@ -26,7 +26,7 @@ def choosecharacter(character):
     return render_template('jsgame.html', chooseduser=character)
 
 
-@socketio.on('message')
+@socketio.on('hidebuttons')
 def receivemessage(message):
     send('ez egy valasz')
 
