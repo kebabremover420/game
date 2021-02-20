@@ -9,16 +9,21 @@ var chooseduser = document.getElementById("chooseduser").innerHTML;
 //const kisegito = new Audio('kisegito.mp3');
 //const buli = new Audio('buli.mp3');
 
-document.getElementById("buli").addEventListener('click', playsound("buli"));
 
-function playsound(soundtype) {
-	console.log("klikk: " + soundtype)
+document.getElementById("buli").addEventListener('click', playsound());
+
+function playsound() {
+	console.log("klikk: ")
+	document.getElementById("bulisound").play();
+	return
+	/*
 	if(soundtype === "kisegito") {
 		new Audio('kisegito.mp3').play();
 	}
 	if(soundtype === "buli") {
 		document.getElementById("bulisound").play();
 	}
+	 */
 }
 
 socket.on('connect', function() {
