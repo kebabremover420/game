@@ -26,11 +26,16 @@ function playsound(soundtype) {
 socket.on('playsoundonclient', function(soundtypeclient) {
 	if (soundtypeclient==="buli") {
 		console.log("start")
-		document.getElementById("bulisound").play();
-		console.log("stop")
+		const audiofile = document.getElementById("bulisound");
+		audiofile.play();
+		if(audiofile.currentTime===audiofile.duration){
+			console.log("stop");
+		}
+
 	}
 	if (soundtypeclient==="kisegito") {
-		document.getElementById("kisegitosound").play();
+		const audiofile = document.getElementById("kisegitosound");
+		audiofile.play();
 	}
 });
 
