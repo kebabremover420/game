@@ -25,7 +25,9 @@ function playsound(soundtype) {
 
 socket.on('playsoundonclient', function(soundtypeclient) {
 	if (soundtypeclient==="buli") {
+		console.log("start")
 		document.getElementById("bulisound").play();
+		console.log("stop")
 	}
 	if (soundtypeclient==="kisegito") {
 		document.getElementById("kisegitosound").play();
