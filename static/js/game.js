@@ -71,8 +71,16 @@ socket.on('currentusers', function(currentusers) {
 		} else{
 			if(currentusers["hos"][i] === "kiki"){
 				var newdiv = `<div class="user" id="${currentusers["name"][i]}"><img class="user" src="/static/images/kikismall.png"></div>`
+				const gombok = document.getElementsByClassName("kiki");
+				for (var i = 0; i < gombok.length; i++) {
+					gombok[i].style.display = "inline-block"
+				}
 			}else{
 				var newdiv = `<div class="user" id="${currentusers["name"][i]}"><img class="user" src="/static/images/bartosbig.png"></div>`
+				const gombok = document.getElementsByClassName("bartos");
+				for (var i = 0; i < gombok.length; i++) {
+					gombok[i].style.display = "inline-block"
+				}
 			}
 			document.getElementById("gamearea").innerHTML += newdiv
 			localusers.push(currentusers["name"][i])
