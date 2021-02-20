@@ -60,6 +60,7 @@ body {
 	background-color: #005960;
 }
 .feed {
+	border-radius: 50%;
 	width: 10px;
 	height: 10px;
 	background-color: red;
