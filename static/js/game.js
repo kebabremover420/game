@@ -28,6 +28,9 @@ socket.on('playsoundonclient', function(soundtypeclient) {
 		console.log("start")
 		const audiofile = document.getElementById("bulisound");
 		audiofile.play();
+		setTimeout(function(){
+			console.log('vege');
+		}, audiofile.duration);
 		console.log("duration: " + audiofile.duration)
 
 	}
