@@ -25,6 +25,15 @@ function playsound(soundtype) {
 	return
 }
 
+function drawfeed(x, y) {
+	const feed = document.createElement("div")
+	feed.className = "feed"
+	feed.style.position = "absolute";
+	feed.style.left = x + 'px';
+	feed.style.top = y + 'px';
+	document.getElementById("gamearea").appendChild(feed)
+}
+
 socket.on('playsoundonclient', function(soundtypeclient) {
 	audiofile = document.getElementById(soundtypeclient)
 	audiofile.play();
@@ -144,4 +153,12 @@ socket.on('divdelete', function(leftuser) {
 	const torlendouser = leftuser;
 	localusers.splice(localusers.indexOf(torlendouser),localusers.indexOf(torlendouser));
 	document.getElementById(leftuser).remove();
+})
+
+socket.on('feedlist', function(feedlist) {
+	for (let a = 0; a < feedlist.length; a++) {
+		let position = feedlist[a];
+		position = position.split(":");
+		drawfeed(position[0], position[1])
+	}
 })
