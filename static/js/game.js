@@ -30,7 +30,7 @@ function playsound(soundtype) {
 
 socket.on('playsoundonclient', function(soundtypeclient) {
 	if (soundtypeclient==="buli") {audiofile = document.getElementById("bulisound");}
-	if (soundtypeclient==="fantacska") {audiofile = document.getElementById("fantacskamp3");}
+	if (soundtypeclient==="fantacska") {audiofile = document.getElementById("fantacskasound");}
 	if (soundtypeclient==="kisegito") {audiofile = document.getElementById("kisegitosound");}
 	audiofile.play();
 	console.log("start");
