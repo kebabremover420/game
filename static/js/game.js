@@ -156,6 +156,7 @@ socket.on('divdelete', function(leftuser) {
 })
 
 socket.on('feedlist', function(feedlist) {
+	console.log("lefut: " + feedlist)
 	for (let a = 0; a < feedlist.length; a++) {
 		let position = feedlist[a];
 		position = position.split(":");
