@@ -10,7 +10,6 @@ currentuserid = ['user1', 'user2', 'user3', 'user4', 'user5']
 currentusers = {"name": [],"sid": [], "hos":[]}
 kajadivs = ["831:291", "36:706", "800:687", "132:532", "687:290", "195:140", "98:56"]
 clients = []
-socketio.emit("feedlist", kajadivs)
 
 
 @app.route('/')
@@ -47,6 +46,7 @@ def connectionevent(event):
     socketio.emit('getuserid', str(jelenlegi))
     event = currentusers
     socketio.emit('currentusers', currentusers)
+    socketio.emit("feedlist", kajadivs)
 
 
 @socketio.on('usermove')
