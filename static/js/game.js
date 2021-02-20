@@ -28,6 +28,7 @@ socket.on('playsoundonclient', function(soundtypeclient) {
 	if (soundtypeclient==="buli") {audiofile = document.getElementById("bulisound");}
 	if (soundtypeclient==="kisegito") {audiofile = document.getElementById("kisegitosound");}
 	audiofile.play();
+	console.log("start")
 	setTimeout(function(){
 		console.log('vege');
 	}, audiofile.duration*1000);
