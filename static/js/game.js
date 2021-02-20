@@ -6,6 +6,7 @@ var posy = 1;
 var alreadyid = false;
 var chooseduser = document.getElementById("chooseduser").innerHTML;
 var audiofile;
+const audiofiles = ["buli", "kisegito", "fantacska", "kicsi", "szaguldas", "talalkozas", "mozgekonyak", "szarhazi"];
 
 //const kisegito = new Audio('kisegito.mp3');
 //const buli = new Audio('buli.mp3');
@@ -16,6 +17,7 @@ document.getElementById("buli").addEventListener('click', function () {
 });
 
  */
+/*
 document.getElementById("kisegito").addEventListener('click', function () {
 	playsound("kisegito")
 });
@@ -38,6 +40,11 @@ document.getElementById("szarhazi").addEventListener('click', function () {
 	playsound("szarhazi")
 });
 
+ */
+
+for (var i = 0; i < audiofiles.length; i++) {
+	addsound(audiofiles[i])
+}
 
 function addsound(gombid) {
 	document.getElementById(gombid).addEventListener('click', function () {
@@ -55,6 +62,7 @@ function playsound(soundtype) {
 
 socket.on('playsoundonclient', function(soundtypeclient) {
 	audiofile = document.getElementById(soundtypeclient)
+	/*
 	//if (soundtypeclient==="buli") {audiofile = document.getElementById("bulisound");}
 	if (soundtypeclient==="kicsi") {audiofile = document.getElementById("kicsisound");}
 	if (soundtypeclient==="fantacska") {audiofile = document.getElementById("fantacskasound");}
@@ -63,6 +71,8 @@ socket.on('playsoundonclient', function(soundtypeclient) {
 	if (soundtypeclient==="talalkozas") {audiofile = document.getElementById("talalkozassound");}
 	if (soundtypeclient==="mozgekonyak") {audiofile = document.getElementById("mozgekonyaksound");}
 	if (soundtypeclient==="szarhazi") {audiofile = document.getElementById("szarhazisound");}
+
+	 */
 	audiofile.play();
 	console.log("start");
 	const gombok = document.getElementsByClassName("btn-secondary");
