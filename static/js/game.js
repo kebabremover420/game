@@ -6,6 +6,7 @@ var posy = 1;
 var alreadyid = false;
 var chooseduser = document.getElementById("chooseduser").innerHTML;
 var audiofile;
+var foodpositions = [];
 const audiofiles = ["buli", "kisegito", "fantacska", "kicsi", "szaguldas", "talalkozas", "mozgekonyak", "szarhazi"];
 
 for (var i = 0; i < audiofiles.length; i++) {
@@ -104,41 +105,29 @@ function mozgas(event){
 		if (posy < 0) {
 			posy = 0
 		}
-		placeDiv(document.getElementById(userid), posx, posy);
-		posxfunc = posx;
-		posyfunc = posy;
-		socket.emit('usermove', `${userid}:${posx}:${posy}`);
 	}
 	if (pressed==="s"){
 		posy = posy + 5;
 		if (posy > 730) {
 			posy = 730
 		}
-		placeDiv(document.getElementById(userid), posx, posy);
-		posxfunc = posx;
-		posyfunc = posy;
-		socket.emit('usermove', `${userid}:${posx}:${posy}`);
 	}
 	if (pressed==="a"){
 		posx = posx - 5;
 		if (posx < 0) {
 			posx = 0;
 		}
-		placeDiv(document.getElementById(userid), posx, posy);
-		posxfunc = posx;
-		posyfunc = posy;
-		socket.emit('usermove', `${userid}:${posx}:${posy}`);
 	}
 	if (pressed==="d"){
 		posx = posx + 5;
 		if (posx > 1150) {
 			posx = 1150;
 		}
-		placeDiv(document.getElementById(userid), posx, posy);
-		posxfunc = posx;
-		posyfunc = posy;
-		socket.emit('usermove', `${userid}:${posx}:${posy}`);
 	}
+	placeDiv(document.getElementById(userid), posx, posy);
+	posxfunc = posx;
+	posyfunc = posy;
+	socket.emit('usermove', `${userid}:${posx}:${posy}`);
 }
 
 socket.on('useraction', function(usermovefromflask) {
@@ -159,6 +148,7 @@ socket.on('feedlist', function(feedlist) {
 	console.log("lefut: " + feedlist)
 	for (let a = 0; a < feedlist.length; a++) {
 		let position = feedlist[a];
+		foodpositions.push(feedlist[a]);
 		position = position.split(":");
 		drawfeed(position[0], position[1])
 	}
