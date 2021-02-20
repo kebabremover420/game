@@ -8,7 +8,11 @@ socketio = SocketIO(app)
 
 currentuserid = ['user1', 'user2', 'user3', 'user4', 'user5']
 currentusers = {"name": [],"sid": [], "hos":[]}
+kajadivs = ["831:291", "36:706", "800:687", "132:532", "687:290", "195:140", "98:56"]
 clients = []
+socketio.emit("feedlist", kajadivs)
+
+
 @app.route('/')
 def index():
     userszamlalo = len(currentusers["name"])
@@ -49,6 +53,12 @@ def connectionevent(event):
 def usermove(positions):
     positions = positions.split(":")
     socketio.emit('useraction', positions)
+
+
+@socketio.on('eaten')
+def feed(eaten):
+    kajadivs.remove(eaten)
+    socketio.emit("feedlist", kajadivs)
 
 
 @socketio.on('playsound')
