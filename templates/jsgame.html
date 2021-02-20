@@ -22,13 +22,14 @@
 		<div class="hanggroup btn-group-vertical">
 			<button type="button" class="btn btn-secondary" id="buli">Buli</button>
 			<button type="button" class="btn btn-secondary" id="kisegito">Kisegitő</button>
-			<button type="button" class="btn btn-secondary">Iligy</button>
+			<button type="button" class="btn btn-secondary" id="fantacska">Fantácska</button>
 			<button type="button" class="btn btn-secondary">Szevasztok</button>
 		</div>
 	</div>
 
 	<div class="gamearea rounded" id="gamearea">
 		<audio id="bulisound" src="{{ url_for('static', filename='audio/buli.mp3') }}"></audio>
+        <audio id="fantacska" src="{{ url_for('static', filename='audio/fantacskamp3.mp3') }}"></audio>
         <audio id="kisegitosound" src="{{ url_for('static', filename='audio/kisegito.mp3') }}"></audio>
 	</div>
 </div>
