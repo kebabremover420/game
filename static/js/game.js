@@ -20,6 +20,9 @@ document.getElementById("kisegito").addEventListener('click', function () {
 document.getElementById("fantacska").addEventListener('click', function () {
 	playsound("fantacska")
 });
+document.getElementById("fantacska").addEventListener('click', function () {
+	playsound("kicsi")
+});
 
 
 function playsound(soundtype) {
@@ -30,6 +33,7 @@ function playsound(soundtype) {
 
 socket.on('playsoundonclient', function(soundtypeclient) {
 	if (soundtypeclient==="buli") {audiofile = document.getElementById("bulisound");}
+	if (soundtypeclient==="kicsi") {audiofile = document.getElementById("kicsisound");}
 	if (soundtypeclient==="fantacska") {audiofile = document.getElementById("fantacskasound");}
 	if (soundtypeclient==="kisegito") {audiofile = document.getElementById("kisegitosound");}
 	audiofile.play();
