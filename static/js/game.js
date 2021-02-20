@@ -10,10 +10,12 @@ var chooseduser = document.getElementById("chooseduser").innerHTML;
 //const buli = new Audio('buli.mp3');
 
 
-document.getElementById("buli").addEventListener('click', playsound());
+document.getElementById("buli").addEventListener('click', function () {
+	playsound("buli")
+});
 
-function playsound() {
-	console.log("klikk: ")
+function playsound(soundtype) {
+	console.log("klikk: " + soundtype);
 	document.getElementById("bulisound").play();
 	return
 	/*
