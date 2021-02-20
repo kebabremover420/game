@@ -13,10 +13,18 @@ var chooseduser = document.getElementById("chooseduser").innerHTML;
 document.getElementById("buli").addEventListener('click', function () {
 	playsound("buli")
 });
+document.getElementById("kisegito").addEventListener('click', function () {
+	playsound("kisegito")
+});
 
 function playsound(soundtype) {
 	console.log("klikk: " + soundtype);
-	document.getElementById("bulisound").play();
+	if (soundtype==="buli") {
+		document.getElementById("bulisound").play();
+	}
+	if (soundtype==="kisegito") {
+		document.getElementById("kisegitosound").play();
+	}
 	return
 	/*
 	if(soundtype === "kisegito") {
