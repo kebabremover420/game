@@ -5,6 +5,7 @@ var posx = 1;
 var posy = 1;
 var alreadyid = false;
 var chooseduser = document.getElementById("chooseduser").innerHTML;
+var audiofile;
 
 //const kisegito = new Audio('kisegito.mp3');
 //const buli = new Audio('buli.mp3');
@@ -24,20 +25,12 @@ function playsound(soundtype) {
 }
 
 socket.on('playsoundonclient', function(soundtypeclient) {
-	if (soundtypeclient==="buli") {
-		console.log("start")
-		const audiofile = document.getElementById("bulisound");
-		audiofile.play();
-		setTimeout(function(){
-			console.log('vege');
-		}, audiofile.duration*1000);
-		console.log("duration: " + audiofile.duration)
-
-	}
-	if (soundtypeclient==="kisegito") {
-		const audiofile = document.getElementById("kisegitosound");
-		audiofile.play();
-	}
+	if (soundtypeclient==="buli") {audiofile = document.getElementById("bulisound");}
+	if (soundtypeclient==="kisegito") {audiofile = document.getElementById("kisegitosound");}
+	audiofile.play();
+	setTimeout(function(){
+		console.log('vege');
+	}, audiofile.duration*1000);
 });
 
 socket.on('connect', function() {
