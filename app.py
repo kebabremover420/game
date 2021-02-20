@@ -14,6 +14,7 @@ for i in range(30):
     x = randint(0, 1150)
     y = randint(0, 730)
     kajadivs.append(str(x)+":"+str(y))
+print(kajadivs)
 clients = []
 
 
