@@ -20,7 +20,7 @@ document.getElementById("kisegito").addEventListener('click', function () {
 document.getElementById("fantacska").addEventListener('click', function () {
 	playsound("fantacska")
 });
-document.getElementById("fantacska").addEventListener('click', function () {
+document.getElementById("kicsi").addEventListener('click', function () {
 	playsound("kicsi")
 });
 
