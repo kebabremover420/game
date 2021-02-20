@@ -1,6 +1,7 @@
 # coding: utf-8
 from flask import Flask, render_template, request
 from flask_socketio import SocketIO, send, emit
+from random import randint
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'some key for session'
 app.config['DEBUG'] = True
@@ -9,6 +10,10 @@ socketio = SocketIO(app)
 currentuserid = ['user1', 'user2', 'user3', 'user4', 'user5']
 currentusers = {"name": [],"sid": [], "hos":[]}
 kajadivs = ["831:291", "36:706", "800:687", "132:532", "687:290", "195:140", "98:56"]
+for i in range(30):
+    x = randint(0, 1150)
+    y = randint(0, 730)
+    kajadivs.append(str(x)+":"+str(y))
 clients = []
 
 
