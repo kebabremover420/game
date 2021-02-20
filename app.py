@@ -51,6 +51,11 @@ def usermove(positions):
     socketio.emit('useraction', positions)
 
 
+@socketio.on('playsound')
+def playsound(soundtype):
+    socketio.emit('playsoundonclient', soundtype)
+
+
 @socketio.on('disconnect')
 def disconnect():
     exitsid = currentusers["sid"].index(request.sid)
