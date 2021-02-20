@@ -28,7 +28,7 @@ socket.on('playsoundonclient', function(soundtypeclient) {
 		console.log("start")
 		const audiofile = document.getElementById("bulisound");
 		audiofile.play();
-		console.log("durat: " + audiofile.duration)
+		console.log("dur: " + audiofile.duration)
 
 	}
 	if (soundtypeclient==="kisegito") {
