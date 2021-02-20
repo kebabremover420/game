@@ -23,6 +23,9 @@ document.getElementById("fantacska").addEventListener('click', function () {
 document.getElementById("kicsi").addEventListener('click', function () {
 	playsound("kicsi")
 });
+document.getElementById("szaguldas").addEventListener('click', function () {
+	playsound("szaguldas")
+});
 
 
 function playsound(soundtype) {
@@ -36,6 +39,7 @@ socket.on('playsoundonclient', function(soundtypeclient) {
 	if (soundtypeclient==="kicsi") {audiofile = document.getElementById("kicsisound");}
 	if (soundtypeclient==="fantacska") {audiofile = document.getElementById("fantacskasound");}
 	if (soundtypeclient==="kisegito") {audiofile = document.getElementById("kisegitosound");}
+	if (soundtypeclient==="szaguldas") {audiofile = document.getElementById("szaguldassound");}
 	audiofile.play();
 	console.log("start");
 	const gombok = document.getElementsByClassName("btn-secondary");
