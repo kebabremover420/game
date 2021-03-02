@@ -126,8 +126,8 @@ function mozgas(event){
 		}
 	}
 	placeDiv(document.getElementById(userid), posx, posy);
-	posxfunc = posx;
-	posyfunc = posy;
+	//posxfunc = posx;
+	//posyfunc = posy;
 	socket.emit('usermove', `${userid}:${posx}:${posy}`);
 }
 
