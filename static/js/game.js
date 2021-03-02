@@ -105,6 +105,7 @@ socket.on('currentusers', function(currentusers) {
 window.addEventListener('keydown', billentyule, true);
 window.addEventListener('keyup', billentyufel, true);
 function billentyule(event){
+	console.log("lefut");
 	if (event.key==="w"){
 		if (wdown === false){
 			posy = posy - 5;
@@ -130,9 +131,12 @@ function billentyule(event){
 		}
 	}
 	if (event.key==="d"){
+		console.log("lefut1");
 		if (ddown === false){
+			console.log("lefut2");
 			ddown = true;
 			while (ddown === true){
+				console.log("lefut3");
 				posx = posx + 5;
 				if (posx > 1150) {
 					posx = 1150;
