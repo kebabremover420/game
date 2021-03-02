@@ -13,6 +13,46 @@ var adown = false;
 var ddown = false;
 const audiofiles = ["buli", "kisegito", "fantacska", "kicsi", "szaguldas", "talalkozas", "mozgekonyak", "szarhazi"];
 
+//Gameloop
+setInterval(onTimerTick, 33); // kb 30fps
+
+function onTimerTick() {
+	if (wdown===true){
+		posy = posy - 5;
+		if (posy < 0) {
+			posy = 0
+		}
+		placeDiv(document.getElementById(userid), posx, posy);
+		socket.emit('usermove', `${userid}:${posx}:${posy}`);
+	}
+	if (sdown===true){
+		posy = posy + 5;
+		if (posy > 730) {
+			posy = 730
+		}
+		placeDiv(document.getElementById(userid), posx, posy);
+		socket.emit('usermove', `${userid}:${posx}:${posy}`);
+	}
+	if (adown===true){
+		posx = posx - 5;
+		if (posx < 0) {
+			posx = 0;
+		}
+		placeDiv(document.getElementById(userid), posx, posy);
+		socket.emit('usermove', `${userid}:${posx}:${posy}`);
+	}
+	if (ddown===true){
+		posx = posx + 5;
+		if (posx > 1150) {
+			posx = 1150;
+		}
+		placeDiv(document.getElementById(userid), posx, posy);
+		socket.emit('usermove', `${userid}:${posx}:${posy}`);
+	}
+}
+//
+
+
 for (var i = 0; i < audiofiles.length; i++) {
 	addsound(audiofiles[i])
 }
@@ -108,48 +148,36 @@ function billentyule(event){
 	console.log("lefut: " + event.key);
 	if (event.key==="w"){
 		if (wdown === false){
-			posy = posy - 5;
-			if (posy < 0) {
-				posy = 0
-			}
+			wdown = true;
 		}
 	}
 	if (event.key==="s"){
 		if (sdown === false){
-			posy = posy + 5;
-			if (posy > 730) {
-				posy = 730
-			}
+			sdown = true;
 		}
 	}
 	if (event.key==="a"){
 		if (adown === false){
-			posx = posx - 5;
-			if (posx < 0) {
-				posx = 0;
-			}
+			adown = true;
 		}
 	}
 	if (event.key==="d"){
 		console.log("lefut1");
 		if (ddown === false){
-			console.log("lefut2");
 			ddown = true;
-			while (ddown === true){
-				console.log("lefut3");
-				posx = posx + 5;
-				if (posx > 1150) {
-					posx = 1150;
-				placeDiv(document.getElementById(userid), posx, posy);
-				socket.emit('usermove', `${userid}:${posx}:${posy}`);
-				}
-			}
-		}
 	}
-
-
 }
 function billentyufel(event){
+	if (event.key==="w"){
+		wdown = false;
+	}
+	if (event.key==="s"){
+		sdown = false;
+	}
+	if (event.key==="a"){
+		adown = false;
+
+	}
 	if (event.key==="d"){
 		ddown = false;
 	}
