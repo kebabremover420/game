@@ -144,6 +144,21 @@ socket.on('currentusers', function(currentusers) {
 
 window.addEventListener('keydown', billentyule, true);
 window.addEventListener('keyup', billentyufel, true);
+function billentyufel(event){
+	if (event.key==="w"){
+		wdown = false;
+	}
+	if (event.key==="s"){
+		sdown = false;
+	}
+	if (event.key==="a"){
+		adown = false;
+
+	}
+	if (event.key==="d"){
+		ddown = false;
+	}
+}
 function billentyule(event){
 	console.log("lefut: " + event.key);
 	if (event.key==="w"){
@@ -165,21 +180,6 @@ function billentyule(event){
 		console.log("lefut1");
 		if (ddown === false){
 			ddown = true;
-	}
-}
-function billentyufel(event){
-	if (event.key==="w"){
-		wdown = false;
-	}
-	if (event.key==="s"){
-		sdown = false;
-	}
-	if (event.key==="a"){
-		adown = false;
-
-	}
-	if (event.key==="d"){
-		ddown = false;
 	}
 }
 /*
