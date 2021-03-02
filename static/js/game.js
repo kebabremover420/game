@@ -93,6 +93,14 @@ socket.on('currentusers', function(currentusers) {
 	}
 })
 
+let teszt;
+window.addEventListener('keydown', teszt, true);
+window.addEventListener('keyup', teszt, true);
+function teszt(event){
+	console.log(event.key);
+}
+
+
 window.addEventListener("keypress", mozgas);
 function placeDiv(elem, x_pos, y_pos) {
   elem.style.position = "absolute";
