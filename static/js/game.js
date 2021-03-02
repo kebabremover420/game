@@ -7,6 +7,10 @@ var alreadyid = false;
 var chooseduser = document.getElementById("chooseduser").innerHTML;
 var audiofile;
 var foodpositions = [];
+var wdown = false;
+var sdown = false;
+var adown = false;
+var ddown = false;
 const audiofiles = ["buli", "kisegito", "fantacska", "kicsi", "szaguldas", "talalkozas", "mozgekonyak", "szarhazi"];
 
 for (var i = 0; i < audiofiles.length; i++) {
@@ -93,13 +97,56 @@ socket.on('currentusers', function(currentusers) {
 	}
 })
 
-window.addEventListener('keydown', teszt, true);
-window.addEventListener('keyup', teszt, true);
-function teszt(event){
-	console.log(event.key);
+window.addEventListener('keydown', billentyule, true);
+window.addEventListener('keyup', billentyufel, true);
+function billentyule(event){
+	if (event.key==="w"){
+		if (wdown === false){
+			posy = posy - 5;
+			if (posy < 0) {
+				posy = 0
+			}
+		}
+	}
+	if (event.key==="s"){
+		if (sdown === false){
+			posy = posy + 5;
+			if (posy > 730) {
+				posy = 730
+			}
+		}
+	}
+	if (event.key==="a"){
+		if (adown === false){
+			posx = posx - 5;
+			if (posx < 0) {
+				posx = 0;
+			}
+		}
+	}
+	if (event.key==="d"){
+		if (ddown === false){
+			ddown = true;
+			while (ddown === true){
+				posx = posx + 5;
+				if (posx > 1150) {
+					posx = 1150;
+				}
+			}
+		}
+	}
+	placeDiv(document.getElementById(userid), posx, posy);
+	//posxfunc = posx;
+	//posyfunc = posy;
+	socket.emit('usermove', `${userid}:${posx}:${posy}`);
+
 }
-
-
+function billentyufel(event){
+	if (event.key==="d"){
+		ddown = false;
+	}
+}
+/*
 window.addEventListener("keypress", mozgas);
 function placeDiv(elem, x_pos, y_pos) {
   elem.style.position = "absolute";
@@ -138,6 +185,8 @@ function mozgas(event){
 	socket.emit('usermove', `${userid}:${posx}:${posy}`);
 }
 
+ */
+
 socket.on('useraction', function(usermovefromflask) {
 	if(usermovefromflask[0] === userid ){
 		
@@ -153,7 +202,6 @@ socket.on('divdelete', function(leftuser) {
 })
 
 socket.on('feedlist', function(feedlist) {
-	console.log("lefut: " + feedlist)
 	for (let a = 0; a < feedlist.length; a++) {
 		let position = feedlist[a];
 		foodpositions.push(feedlist[a]);
