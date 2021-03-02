@@ -29,25 +29,30 @@ function onTimerTick() {
 		posy = posy + 5;
 		if (posy > 730) {
 			posy = 730
+		} else {
+			placeDiv(document.getElementById(userid), posx, posy);
+			socket.emit('usermove', `${userid}:${posx}:${posy}`);
 		}
-		placeDiv(document.getElementById(userid), posx, posy);
-		socket.emit('usermove', `${userid}:${posx}:${posy}`);
+
 	}
 	if (adown===true){
 		posx = posx - 5;
 		if (posx < 0) {
 			posx = 0;
+		} else {
+			placeDiv(document.getElementById(userid), posx, posy);
+			socket.emit('usermove', `${userid}:${posx}:${posy}`);
 		}
-		placeDiv(document.getElementById(userid), posx, posy);
-		socket.emit('usermove', `${userid}:${posx}:${posy}`);
+
 	}
 	if (ddown===true){
 		posx = posx + 5;
 		if (posx > 1150) {
 			posx = 1150;
+		} else {
+			placeDiv(document.getElementById(userid), posx, posy);
+			socket.emit('usermove', `${userid}:${posx}:${posy}`);aw
 		}
-		placeDiv(document.getElementById(userid), posx, posy);
-		socket.emit('usermove', `${userid}:${posx}:${posy}`);
 	}
 }
 //
