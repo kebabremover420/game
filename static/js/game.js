@@ -140,8 +140,8 @@ function billentyule(event){
 				posx = posx + 5;
 				if (posx > 1150) {
 					posx = 1150;
-					placeDiv(document.getElementById(userid), posx, posy);
-					socket.emit('usermove', `${userid}:${posx}:${posy}`);
+				placeDiv(document.getElementById(userid), posx, posy);
+				socket.emit('usermove', `${userid}:${posx}:${posy}`);
 				}
 			}
 		}
