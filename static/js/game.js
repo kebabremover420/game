@@ -29,6 +29,11 @@ function playsound(soundtype) {
 	socket.emit('playsound', soundtype);
 	return
 }
+function placeDiv(elem, x_pos, y_pos) {
+  elem.style.position = "absolute";
+  elem.style.left = x_pos+'px';
+  elem.style.top = y_pos+'px';
+}
 
 function drawfeed(x, y) {
 	const feed = document.createElement("div")
@@ -131,14 +136,13 @@ function billentyule(event){
 				posx = posx + 5;
 				if (posx > 1150) {
 					posx = 1150;
+					placeDiv(document.getElementById(userid), posx, posy);
+					socket.emit('usermove', `${userid}:${posx}:${posy}`);
 				}
 			}
 		}
 	}
-	placeDiv(document.getElementById(userid), posx, posy);
-	//posxfunc = posx;
-	//posyfunc = posy;
-	socket.emit('usermove', `${userid}:${posx}:${posy}`);
+
 
 }
 function billentyufel(event){
@@ -148,11 +152,7 @@ function billentyufel(event){
 }
 /*
 window.addEventListener("keypress", mozgas);
-function placeDiv(elem, x_pos, y_pos) {
-  elem.style.position = "absolute";
-  elem.style.left = x_pos+'px';
-  elem.style.top = y_pos+'px';
-}
+
 function mozgas(event){
 	pressed = event.key;
 	if (pressed==="w"){
