@@ -240,4 +240,4 @@ socket.on('feedlist', function(feedlist) {
 		position = position.split(":");
 		drawfeed(position[0], position[1])
 	}
-})
+})}
