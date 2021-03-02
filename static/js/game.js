@@ -93,7 +93,6 @@ socket.on('currentusers', function(currentusers) {
 	}
 })
 
-let teszt;
 window.addEventListener('keydown', teszt, true);
 window.addEventListener('keyup', teszt, true);
 function teszt(event){
