@@ -56,7 +56,7 @@ function onTimerTick() {
 		}
 	}
 	for (var i = 0; i < allfood.length; i++){
-		collision(posx, posy, 50, allfood[i].style.left, allfood[i].style.top, 10)
+		collision(posx, posy, 50, Number(allfood[i].style.left.slice(-1)), Number(allfood[i].style.top.slice(-1)), 10)
 	}
 }
 //
