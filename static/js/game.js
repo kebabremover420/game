@@ -11,6 +11,7 @@ var wdown = false;
 var sdown = false;
 var adown = false;
 var ddown = false;
+var allfood = document.getElementsByClassName("feed")
 const audiofiles = ["buli", "kisegito", "fantacska", "kicsi", "szaguldas", "talalkozas", "mozgekonyak", "szarhazi"];
 
 //Gameloop
@@ -52,6 +53,18 @@ function onTimerTick() {
 		} else {
 			placeDiv(document.getElementById(userid), posx, posy);
 			socket.emit('usermove', `${userid}:${posx}:${posy}`);
+		}
+	}
+	for (var i = 0; i < allfood.length; i++){
+		if (allfood[i].style.left == posx){
+			if (allfood[i].style.left == posy){
+				console.log("talalat")
+			}
+		}
+		if (allfood[i].style.left == posy){
+			if (allfood[i].style.left == posx){
+				console.log("talalat")
+			}
 		}
 	}
 }
@@ -201,7 +214,6 @@ socket.on('divdelete', function(leftuser) {
 })
 
 socket.on('feedlist', function(feedlist) {
-	console.log(feedlist + "megkaptam")
 	for (let a = 0; a < feedlist.length; a++) {
 		let position = feedlist[a];
 		foodpositions.push(feedlist[a]);
