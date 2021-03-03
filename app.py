@@ -62,6 +62,7 @@ def usermove(positions):
 
 @socketio.on('eaten')
 def feed(eaten):
+    kajadivs.remove(eaten)
     socketio.emit('foodeaten', eaten)
 
 

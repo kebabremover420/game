@@ -11,6 +11,7 @@ var wdown = false;
 var sdown = false;
 var adown = false;
 var ddown = false;
+var eatenfoods = [];
 var allfood = document.getElementsByClassName("feed")
 const audiofiles = ["buli", "kisegito", "fantacska", "kicsi", "szaguldas", "talalkozas", "mozgekonyak", "szarhazi"];
 
@@ -57,7 +58,13 @@ function onTimerTick() {
 	}
 	for (var i = 0; i < allfood.length; i++){
 		if (collision(posx+25, posy+25, 25, Number(allfood[i].style.left.slice(0, -2))+5, Number(allfood[i].style.top.slice(0, -2))+5, 5)) {
-			socket.emit("eaten", `${Number(allfood[i].style.left.slice(0, -2))}:${Number(allfood[i].style.top.slice(0, -2))}`)
+			let justeaten = `${Number(allfood[i].style.left.slice(0, -2))}:${Number(allfood[i].style.top.slice(0, -2))}`;
+			eatenfoods.push(justeaten)
+			if (eatenfoods.includes(justeaten)){
+				continue;
+			} else {
+				socket.emit("eaten", justeaten;
+			}
 		}
 	}
 }
