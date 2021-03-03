@@ -58,7 +58,7 @@ def usermove(positions):
 
 @socketio.on('eaten')
 def feed(eaten):
-    kajadivs.remove(eaten)
+    if eaten in kajadivs: kajadivs.remove(eaten) 
     socketio.emit("feedlist", kajadivs)
 
 
