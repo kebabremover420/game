@@ -57,7 +57,7 @@ function onTimerTick() {
 	}
 	for (var i = 0; i < allfood.length; i++){
 		if (collision(posx+25, posy+25, 25, Number(allfood[i].style.left.slice(0, -2))+5, Number(allfood[i].style.top.slice(0, -2))+5, 5)) {
-			allfood[i].style.display = none;
+			allfood[i].style.display = "none";
 		}
 	}
 }
