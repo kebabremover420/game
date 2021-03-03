@@ -243,6 +243,5 @@ socket.on('feedlist', function(feedlist) {
 })
 socket.on("foodeaten", function(foodeaten) {
 	console.log("kapott: " + foodeaten)
-	foodeaten = "#" + foodeaten
-	$(foodeaten).remove();
+	document.getElementById(foodeaten).remove();
 })
