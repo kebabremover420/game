@@ -62,6 +62,7 @@ function onTimerTick() {
 			if (eatenfoods.includes(justeaten)){
 				continue;
 			} else {
+				console.log("kuldes: " + justeaten)
 				socket.emit("eaten", justeaten);
 				eatenfoods.push(justeaten);
 			}
@@ -241,6 +242,7 @@ socket.on('feedlist', function(feedlist) {
 	}
 })
 socket.on("foodeaten", function(foodeaten) {
+	console.log("kapott: " + foodeaten)
 	const food = document.getElementById(foodeaten);
 	food.parentElement.removeChild(food);
 })
