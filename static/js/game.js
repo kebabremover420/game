@@ -235,5 +235,5 @@ socket.on('feedlist', function(feedlist) {
 })
 socket.on("foodeaten", function(foodeaten) {
 	const food = document.getElementById(foodeaten);
-	food.parentNode.removeChild(food);
+	food.parentElement.removeChild(food);
 })
