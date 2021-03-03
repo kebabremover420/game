@@ -164,28 +164,28 @@ function billentyufel(event){
 		ddown = false;
 	}
 }
-function billentyule(event){
-	if (event.key==="w"){
-		if (wdown === false){
+function billentyule(event) {
+	if (event.key === "w") {
+		if (wdown === false) {
 			wdown = true;
 		}
 	}
-	if (event.key==="s"){
-		if (sdown === false){
+	if (event.key === "s") {
+		if (sdown === false) {
 			sdown = true;
 		}
 	}
-	if (event.key==="a"){
-		if (adown === false){
+	if (event.key === "a") {
+		if (adown === false) {
 			adown = true;
 		}
 	}
-	if (event.key==="d"){
-		if (ddown === false){
+	if (event.key === "d") {
+		if (ddown === false) {
 			ddown = true;
+		}
 	}
 }
-
 socket.on('useraction', function(usermovefromflask) {
 	if(usermovefromflask[0] === userid ){
 		
@@ -208,4 +208,4 @@ socket.on('feedlist', function(feedlist) {
 		position = position.split(":");
 		drawfeed(position[0], position[1])
 	}
-})}
+})
