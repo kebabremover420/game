@@ -243,5 +243,5 @@ socket.on('feedlist', function(feedlist) {
 })
 socket.on("foodeaten", function(foodeaten) {
 	console.log("kapott: " + foodeaten)
-	document.getElementById(foodeaten).remove();
+	$(`#${foodeaten}`).remove();
 })
