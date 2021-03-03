@@ -56,16 +56,7 @@ function onTimerTick() {
 		}
 	}
 	for (var i = 0; i < allfood.length; i++){
-		if (allfood[i].style.left == posx){
-			if (allfood[i].style.left == posy){
-				console.log("talalat")
-			}
-		}
-		if (allfood[i].style.left == posy){
-			if (allfood[i].style.left == posx){
-				console.log("talalat")
-			}
-		}
+		collision(posx, posy, 50, allfood[i].style.left, allfood[i].style.top, 10)
 	}
 }
 //
@@ -73,6 +64,22 @@ function onTimerTick() {
 
 for (var i = 0; i < audiofiles.length; i++) {
 	addsound(audiofiles[i])
+}
+
+function collision(p1x, p1y, r1, p2x, p2y, r2) {
+  var a;
+  var x;
+  var y;
+
+  a = r1 + r2;
+  x = p1x - p2x;
+  y = p1y - p2y;
+
+  if (a > Math.sqrt((x * x) + (y * y))) {
+    console.log("talalat")
+  } else {
+    return false;
+  }
 }
 
 function addsound(gombid) {
