@@ -106,7 +106,8 @@ function placeDiv(elem, x_pos, y_pos) {
 
 function drawfeed(x, y) {
 	const feed = document.createElement("div")
-	feed.className = "feed"
+	feed.className = "feed";
+	feed.id = x + ":" + y;
 	feed.style.position = "absolute";
 	feed.style.left = x + 'px';
 	feed.style.top = y + 'px';
@@ -231,4 +232,8 @@ socket.on('feedlist', function(feedlist) {
 		position = position.split(":");
 		drawfeed(position[0], position[1])
 	}
+})
+socket.on("foodeaten", function(foodeaten) {
+	const food = document.getElementById(foodeaten);
+	food.parentNode.removeChild(food);
 })
