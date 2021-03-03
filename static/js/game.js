@@ -59,11 +59,11 @@ function onTimerTick() {
 	for (var i = 0; i < allfood.length; i++){
 		if (collision(posx+25, posy+25, 25, Number(allfood[i].style.left.slice(0, -2))+5, Number(allfood[i].style.top.slice(0, -2))+5, 5)) {
 			let justeaten = allfood[i].style.left.slice(0, -2) + ":" + allfood[i].style.top.slice(0, -2);
-			eatenfoods.push(justeaten)
 			if (eatenfoods.includes(justeaten)){
 				continue;
 			} else {
 				socket.emit("eaten", justeaten);
+				eatenfoods.push(justeaten);
 			}
 		}
 	}
