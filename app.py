@@ -49,7 +49,6 @@ def connectionevent(event):
     currentusers["sid"].append(request.sid)
     currentusers["hos"].append(givenuser)
     socketio.emit('getuserid', str(jelenlegi))
-    event = currentusers
     socketio.emit('currentusers', currentusers)
     socketio.emit("feedlist", kajadivs)
 
@@ -62,7 +61,6 @@ def usermove(positions):
 
 @socketio.on('eaten')
 def feed(eaten):
-    print("kaptam", eaten)
     kajadivs.remove(eaten)
     socketio.emit('foodeaten', eaten)
 
