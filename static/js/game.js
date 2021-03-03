@@ -51,7 +51,7 @@ function onTimerTick() {
 			posx = 1150;
 		} else {
 			placeDiv(document.getElementById(userid), posx, posy);
-			socket.emit('usermove', `${userid}:${posx}:${posy}`);aw
+			socket.emit('usermove', `${userid}:${posx}:${posy}`);
 		}
 	}
 }
