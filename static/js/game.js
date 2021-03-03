@@ -165,7 +165,6 @@ function billentyufel(event){
 	}
 }
 function billentyule(event){
-	console.log("lefut: " + event.key);
 	if (event.key==="w"){
 		if (wdown === false){
 			wdown = true;
@@ -182,47 +181,10 @@ function billentyule(event){
 		}
 	}
 	if (event.key==="d"){
-		console.log("lefut1");
 		if (ddown === false){
 			ddown = true;
 	}
 }
-/*
-window.addEventListener("keypress", mozgas);
-
-function mozgas(event){
-	pressed = event.key;
-	if (pressed==="w"){
-		posy = posy - 5;
-		if (posy < 0) {
-			posy = 0
-		}
-	}
-	if (pressed==="s"){
-		posy = posy + 5;
-		if (posy > 730) {
-			posy = 730
-		}
-	}
-	if (pressed==="a"){
-		posx = posx - 5;
-		if (posx < 0) {
-			posx = 0;
-		}
-	}
-	if (pressed==="d"){
-		posx = posx + 5;
-		if (posx > 1150) {
-			posx = 1150;
-		}
-	}
-	placeDiv(document.getElementById(userid), posx, posy);
-	//posxfunc = posx;
-	//posyfunc = posy;
-	socket.emit('usermove', `${userid}:${posx}:${posy}`);
-}
-
- */
 
 socket.on('useraction', function(usermovefromflask) {
 	if(usermovefromflask[0] === userid ){
@@ -239,6 +201,7 @@ socket.on('divdelete', function(leftuser) {
 })
 
 socket.on('feedlist', function(feedlist) {
+	console.log(feedlist + "megkaptam")
 	for (let a = 0; a < feedlist.length; a++) {
 		let position = feedlist[a];
 		foodpositions.push(feedlist[a]);
