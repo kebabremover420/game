@@ -56,7 +56,9 @@ function onTimerTick() {
 		}
 	}
 	for (var i = 0; i < allfood.length; i++){
-		collision(posx+50, posy+50, 50, Number(allfood[i].style.left.slice(0, -2))+10, Number(allfood[i].style.top.slice(0, -2))+10, 10)
+		if (collision(posx+25, posy+25, 25, Number(allfood[i].style.left.slice(0, -2))+5, Number(allfood[i].style.top.slice(0, -2))+5, 5)) {
+			allfood[i].style.display = none;
+		}
 	}
 }
 //
@@ -76,7 +78,9 @@ function collision(p1x, p1y, r1, p2x, p2y, r2) {
   y = p1y - p2y;
 
   if (a > Math.sqrt((x * x) + (y * y))) {
-    console.log("talalat")
+  	console.log("talalat");
+	return true;
+
   } else {
     return false;
   }
