@@ -17,6 +17,7 @@ const audiofiles = ["buli", "kisegito", "fantacska", "kicsi", "szaguldas", "tala
 
 //Gameloop
 setInterval(onTimerTick, 33); // kb 30fps
+window.alert("teszrt");
 
 function onTimerTick() {
 	if (wdown===true){

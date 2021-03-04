@@ -83,5 +83,8 @@ def disconnect():
 
 if __name__ == '__main__':
     socketio.run(app, host="0.0.0.0", port="8080")  # rpi: 192.168.0.41 ec2: 3.21.169.88
+
+
 # EUaccess: http://3.124.8.110:8080/
+# fastjoin: http://3.124.8.110:8080/choosecharacter/kiki
 # USAccess: http://3.21.169.88:8080/
