@@ -244,7 +244,7 @@ socket.on("foodeaten", function(foodeaten) {
 	console.log("kapott: " + foodeaten)
 	let elem = "#" + foodeaten;
 	console.log(elem)
-	$("#" + foodeaten).remove();
+	$(elem).remove();
 	//elem.style.display = "none";
 	//elem.parentNode.removeChild(elem);
 	//document.getElementById(foodeaten).remove();
