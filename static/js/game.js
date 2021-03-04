@@ -242,14 +242,9 @@ socket.on('feedlist', function(feedlist) {
 })
 socket.on("foodeaten", function(foodeaten) {
 	console.log("kapott: " + foodeaten)
-	let elem = document.getElementById(foodeaten);
+	let elem = "#" + foodeaten;
 	console.log(elem)
 	$("#" + foodeaten).remove();
-	if (jQuery) {
-		alert("jquery is loaded");
-	} else {
-		alert("Not loaded");
-	}
 	//elem.style.display = "none";
 	//elem.parentNode.removeChild(elem);
 	//document.getElementById(foodeaten).remove();
