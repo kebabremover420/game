@@ -57,7 +57,7 @@ function onTimerTick() {
 		}
 	}
 	for (var i = 0; i < allfood.length; i++){
-		if (collision(posx+25, posy+25, 25, Number(allfood[i].style.left.slice(0, -2))+5, Number(allfood[i].style.top.slice(0, -2))+5, 5)) {
+		if (utkozes(posx+25, posy+25, 25, Number(allfood[i].style.left.slice(0, -2))+5, Number(allfood[i].style.top.slice(0, -2))+5, 5)) {
 			let justeaten = allfood[i].style.left.slice(0, -2) + ":" + allfood[i].style.top.slice(0, -2);
 			if (eatenfoods.includes(justeaten)){
 				continue;
@@ -76,7 +76,7 @@ for (var i = 0; i < audiofiles.length; i++) {
 	addsound(audiofiles[i])
 }
 
-function collision(p1x, p1y, r1, p2x, p2y, r2) {
+function utkozes(p1x, p1y, r1, p2x, p2y, r2) {
   var a;
   var x;
   var y;
@@ -86,7 +86,6 @@ function collision(p1x, p1y, r1, p2x, p2y, r2) {
   y = p1y - p2y;
 
   if (a > Math.sqrt((x * x) + (y * y))) {
-  	console.log("talalat");
 	return true;
 
   } else {
@@ -243,5 +242,8 @@ socket.on('feedlist', function(feedlist) {
 })
 socket.on("foodeaten", function(foodeaten) {
 	console.log("kapott: " + foodeaten)
-	document.getElementById(foodeaten).remove();
+	let elem = document.getElementById(foodeaten);
+	elem.parentNode.removeChild(elem);
+	//document.getElementById(foodeaten).remove();
+	return;
 })
