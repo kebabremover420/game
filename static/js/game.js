@@ -60,7 +60,7 @@ function onTimerTick() {
 		if (utkozes(posx+25, posy+25, 25, Number(allfood[i].style.left.slice(0, -2))+5, Number(allfood[i].style.top.slice(0, -2))+5, 5)) {
 			let justeaten = allfood[i].style.left.slice(0, -2) + ":" + allfood[i].style.top.slice(0, -2);
 			if (eatenfoods.includes(justeaten)){
-				continue;
+
 			} else {
 				console.log("kuldes: " + justeaten)
 				socket.emit("eaten", justeaten);
@@ -74,6 +74,10 @@ function onTimerTick() {
 
 for (var i = 0; i < audiofiles.length; i++) {
 	addsound(audiofiles[i])
+}
+
+function removefood(foodtoremoveid) {
+	document.getElementById(foodtoremoveid).remove();
 }
 
 function utkozes(p1x, p1y, r1, p2x, p2y, r2) {
@@ -103,7 +107,6 @@ addsound("buli");
 
 function playsound(soundtype) {
 	socket.emit('playsound', soundtype);
-	return
 }
 function placeDiv(elem, x_pos, y_pos) {
   elem.style.position = "absolute";
@@ -242,11 +245,12 @@ socket.on('feedlist', function(feedlist) {
 })
 socket.on("foodeaten", function(foodeaten) {
 	console.log("kapott: " + foodeaten)
-	let elem = "#" + foodeaten;
-	console.log(elem)
-	$(elem).remove();
+	removefood(foodeaten);
+	//let elem = "#" + foodeaten;
+	//console.log(elem)
+	//$(elem).remove();
 	//elem.style.display = "none";
 	//elem.parentNode.removeChild(elem);
 	//document.getElementById(foodeaten).remove();
-	return;
+
 })
