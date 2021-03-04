@@ -123,7 +123,7 @@ function drawfeed(x, y) {
 }
 
 socket.on('playsoundonclient', function(soundtypeclient) {
-	audiofile = document.getElementById(soundtypeclient)
+	audiofile = document.getElementById(soundtypeclient);
 	audiofile.play();
 	const gombok = document.getElementsByClassName("btn-secondary");
 	for (var i = 0; i < gombok.length; i++) {
@@ -243,6 +243,7 @@ socket.on('feedlist', function(feedlist) {
 socket.on("foodeaten", function(foodeaten) {
 	console.log("kapott: " + foodeaten)
 	let elem = document.getElementById(foodeaten);
+	console.log(elem)
 	elem.style.display = "none";
 	//elem.parentNode.removeChild(elem);
 	//document.getElementById(foodeaten).remove();
