@@ -243,7 +243,8 @@ socket.on('feedlist', function(feedlist) {
 socket.on("foodeaten", function(foodeaten) {
 	console.log("kapott: " + foodeaten)
 	let elem = document.getElementById(foodeaten);
-	elem.parentNode.removeChild(elem);
+	elem.style.display = "none";
+	//elem.parentNode.removeChild(elem);
 	//document.getElementById(foodeaten).remove();
 	return;
 })
