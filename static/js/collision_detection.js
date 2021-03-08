@@ -1,4 +1,4 @@
-const socket = io.connect('http://3.124.8.110:8080/');
+const socket = io.connect('http://3.124.8.110:80/');
 var userid;
 var localusers = []
 var posx = 1;
@@ -223,7 +223,7 @@ function billentyule(event) {
 }
 socket.on('useraction', function(usermovefromflask) {
 	if(usermovefromflask[0] === userid ){
-		
+
 	} else {
 		placeDiv(document.getElementById(usermovefromflask[0]), usermovefromflask[1], usermovefromflask[2]);
 	}
