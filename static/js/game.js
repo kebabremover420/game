@@ -1,4 +1,4 @@
-const socket = io.connect('http://3.124.8.110:80/');
+const socket = io.connect('http://nkapp.tk/');
 var userid;
 var localusers = []
 var posx = 1;
